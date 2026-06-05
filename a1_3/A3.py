@@ -270,36 +270,35 @@ class LoRALayer(nn.Module):
 
 
 def test_model_generation(model, tokenizer, user_query, system_msg="You are a helpful assistant."):
-        """
-        Formats a query using Task 1.2 ChatML format, runs generation, 
-        and extracts only the new tokens produced by the assistant.
-        """
-        # 1. Replicate Task 1.2 Prompt Formatting Exactly
-        prompt = f"<|im_start|>system\n{system_msg}<|im_end|>\n"
-        prompt += f"<|im_start|>user\n{user_query}<|im_end|>\n"
-        prompt += f"<|im_start|>assistant\n" # Trigger token sequence for generation
+      prompt  = f"<|im_start|>system\n{system_msg}<|im_end|>\n"
+      prompt += f"<|im_start|>user\n{user_query}<|im_end|>\n"
+      prompt += f"<|im_start|>assistant\n"
 
-        device = next(model.parameters()).device
-        inputs = tokenizer(prompt, return_tensors="pt").to(device)
+      device = next(model.parameters()).device
+      inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
-        # 2. Configure safe generation arguments
-        with torch.no_grad():
-            output_ids = model.generate(
-                **inputs,
-                max_new_tokens=128,
-                do_sample=True,
-                temperature=1.0,
-                top_p=0.9,
-                eos_token_id=tokenizer.eos_token_id,
-                pad_token_id=tokenizer.pad_token_id
-            )
-        
-        # 3. Slice out the prompt tokens so we ONLY decode what the assistant generated
-        prompt_length = inputs["input_ids"].shape[-1]
-        generated_tokens = output_ids[0][prompt_length:]
-        
-        return tokenizer.decode(generated_tokens).strip()
+      im_end_id = tokenizer.convert_tokens_to_ids("<|im_end|>")
+      stop_ids  = [tid for tid in {im_end_id, tokenizer.eos_token_id} if tid is not None]
 
+      was_training = model.training
+      model.eval()
+      try:
+          with torch.inference_mode():
+              output_ids = model.generate(
+                  **inputs,
+                  max_new_tokens=128,
+                  do_sample=True,
+                  temperature=0.7,
+                  top_p=0.9,
+                  eos_token_id=stop_ids,
+                  pad_token_id=tokenizer.pad_token_id,
+              )
+      finally:
+          if was_training:
+              model.train()
+
+      generated = output_ids[0][inputs["input_ids"].shape[-1]:]
+      return tokenizer.decode(generated, skip_special_tokens=True).strip()
 
 if __name__ == "__main__":
 
@@ -492,7 +491,6 @@ if __name__ == "__main__":
 #causing it to treat user inputs as text documents that should be completed, and collapse into infinite repetition loops 
 #or irrelevant web vocabulary. Both the full SFT baseline and the LoRA-trained models successfully internalize the 
 #ChatML formatting structure and adopt the conversational persona of an assistant, although the restricted capacity 
-#of the 135-million parameter architecture causes the LoRA variant to occasionally bleed trailing system vocabulary 
-#at its termination boundaries. While both fine-tuned models demonstrate reliability for straightforward factual retrieval tasks, 
+#of the 135-million parameter architecture causes the LoRA variant to occasionally repeat itself. While both fine-tuned models demonstrate reliability for straightforward factual retrieval tasks, 
 #their creative and explanatory depth degrades into overly simplistic or generic placeholders when dealing with more 
 #complex prompts, and quality remains constrained by the small model size and the training limit.

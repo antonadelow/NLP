@@ -98,11 +98,10 @@ def setup_vector_store(documents):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     
     metadatas = [{"id": idx} for idx in documents.index]
-    texts = text_splitter.create_documents(
+    chunks = text_splitter.create_documents(
         texts=documents.abstract.tolist(),
         metadatas=metadatas
     )
-    chunks = text_splitter.split_documents(texts)
     print(f"Documents converted into {len(chunks)} structural text chunks.")
 
     # Task 3.3: Instantiate Chroma Vector Store with explicit Cosine Similarity space
@@ -189,25 +188,25 @@ def evaluate_system(rag_chain, model, questions, sample_size=30):
         gold_ans = row['gold_label'].strip().lower()
         gold_doc_id = row['gold_document_id']
         
+        fetched_id = None
+        final_rag_ans = "invalid"
+        
         # --- 1. Evaluate RAG Pipeline ---
         try:
             res = rag_chain.invoke(q_text)
             
-            # FIRST: Track database retrieval quality immediately
             retrieved_docs = res['context']
-            fetched_id = retrieved_docs[0].metadata.get('id') if retrieved_docs else None
-            gold_docs_fetched.append(1 if fetched_id == gold_doc_id else 0)
-            
-            # SECOND: Extract text and parse
+            if retrieved_docs:
+                fetched_id = retrieved_docs[0].metadata.get('id')
+                
             ans = res['answer'].strip().lower()
             final_rag_ans = parse_answer(ans)
             
         except Exception as e:
-            final_rag_ans = "invalid"
-            # Only append 0 here if the whole RAG chain failed to invoke
-            if len(gold_docs_fetched) <= idx: 
-                gold_docs_fetched.append(0)
             print(f"Execution boundary error on RAG Row {idx}: {e}")            
+
+        # Securely track retrieval quality for this step
+        gold_docs_fetched.append(1 if fetched_id == gold_doc_id else 0)
         # --- 2. Evaluate Baseline Pipeline (No Context) ---
         try:
             base_prompt = baseline_template.format(question=q_text)
@@ -267,3 +266,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#Task 3.2:
+#Chunking breaks down long document abstracts into smaller, manageable segments using a tool like RecursiveCharacterTextSplitter 
+#to accommodate the strict token limits of embedding models. These design choices directly dictate the overall quality of a 
+#RAG system: chunks that are too large introduce irrelevant noise and dilute semantic precision during vector search, 
+#while chunks that are too small fragment

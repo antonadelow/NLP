@@ -3,14 +3,13 @@ Total Sample Size: 30
 
 [RAG Pipeline System]
   Valid Binary Responses: 30 / 30
-  Accuracy Score (on valid): 0.8333
-  Macro F1-Score (on valid): 0.7217
+  Accuracy Score (on valid): 0.7667
+  Macro F1-Score (on valid): 0.5425
 
 [Baseline Pipeline (Without Context)]
-  Valid Binary Responses: 25 / 30
-  Accuracy Score (on valid): 0.6400
-  Macro F1-Score (on valid): 0.4755
+  Valid Binary Responses: 21 / 30
+  Accuracy Score (on valid): 0.6190
+  Macro F1-Score (on valid): 0.5333
 
 [Retrieval Quality Inspection (Task 5.2)]
   Gold Document Top-1 Retrieval Accuracy (Recall@1): 0.9667
-=============================================================================
