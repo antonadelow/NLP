@@ -1,0 +1,8 @@
+a1_1/__pycache__
+a1_2/__pycache__
+a1_3/__pycache__
+a1_4/__pycache__
+*.safetensors
+*.pt
+*.bin
+*.txt

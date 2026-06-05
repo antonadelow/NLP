@@ -1,0 +1,27 @@
+========================================
+--- Running Evaluation and Analysis ---
+========================================
+
+[Task 2.1] Computing Validation Perplexity (this may take a minute)...
+  -> Validation Perplexity: 56.46
+
+[Task 3.1] Predicting next words for: 'she lives in san'
+  - <UNK>: 12.3020
+  - francisco: 11.6097
+  - diego: 10.9738
+  - juan: 9.3766
+  - antonio: 9.0786
+Custom Model -> <BOS> in natural language processing , a <UNK> is a type of <UNK> , <UNK> <UNK> . it is an <UNK> for <UNK> <UNK> , a <UNK> <UNK> of the <UNK> <UNK> . <EOS>
+
+Custom Model -> <BOS> is stockholm the capital of sweden ? answer yes or no . the answer is the question of whether it is <UNK> or not <UNK> . <EOS>
+
+Custom Model -> <BOS> write a <UNK> program that <UNK> a list . <EOS>
+
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████| 179/179 [00:00<00:00, 14361.86it/s]
+OLMo-2 -> In natural language processing, a Transformer is a neural network architecture that can be used for natural language processing. It is a type of recurrent neural network (RNN) that uses attention to learn the importance of different parts of the input sequence. This architecture is particularly effective when dealing with large
+
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████| 179/179 [00:00<00:00, 13690.13it/s]
+OLMo-2 -> Is Stockholm the capital of Sweden? Answer yes or no. The answer is yes.
+
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████| 179/179 [00:00<00:00, 14263.36it/s]
+OLMo-2 -> Write a Python program that reverses a list. Reverse a list reverses the elements of a list in place. It is similar to the built-in method in the language, but it does not modify the list passed to the method, but instead returns the reversed list. The reversed method takes the list

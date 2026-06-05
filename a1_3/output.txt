@@ -1,0 +1,322 @@
+================================================================================
+EVALUATING PRETRAINED MODEL
+================================================================================
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████| 272/272 [00:00<00:00, 19632.94it/s]
+You are adding a <class 'transformers.trainer_callback.ProgressCallback'> to the callbacks of this Trainer, but there is already one. The currentlist of callbacks is
+:DefaultFlowCallback
+ProgressCallback
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [00:10<00:00, 39.97it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [00:10<00:00, 39.97it/s]
+
+PRETRAINED EVAL METRICS:
+{
+  "eval_loss": 3.1639106273651123,
+  "eval_model_preparation_time": 0.0021,
+  "eval_rougeL": 0.5221363998535864,
+  "eval_runtime": 10.2652,
+  "eval_samples_per_second": 38.967,
+  "eval_steps_per_second": 38.967,
+  "epoch": 0
+}
+
+================================================================================
+TRAINING BASELINE MODEL (SFT)
+================================================================================
+No saved baseline model found. Training and saving.
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████| 272/272 [00:00<00:00, 18336.05it/s]
+Trainable parameters (Baseline): 134515008
+You are adding a <class 'transformers.trainer_callback.ProgressCallback'> to the callbacks of this Trainer, but there is already one. The currentlist of callbacks is
+:DefaultFlowCallback
+ProgressCallback
+{'loss': '1.662', 'grad_norm': '11.62', 'learning_rate': '4.501e-05', 'epoch': '0.1'}                                                           
+{'loss': '1.662', 'grad_norm': '11.62', 'learning_rate': '4.501e-05', 'epoch': '0.1'}                                                           
+{'loss': '1.372', 'grad_norm': '10.06', 'learning_rate': '4.001e-05', 'epoch': '0.2'}                                                           
+{'loss': '1.372', 'grad_norm': '10.06', 'learning_rate': '4.001e-05', 'epoch': '0.2'}                                                           
+{'loss': '1.299', 'grad_norm': '5.844', 'learning_rate': '3.501e-05', 'epoch': '0.3'}                                                           
+{'loss': '1.299', 'grad_norm': '5.844', 'learning_rate': '3.501e-05', 'epoch': '0.3'}                                                           
+{'loss': '1.329', 'grad_norm': '4.531', 'learning_rate': '3.001e-05', 'epoch': '0.4'}                                                           
+{'loss': '1.329', 'grad_norm': '4.531', 'learning_rate': '3.001e-05', 'epoch': '0.4'}                                                           
+{'loss': '1.289', 'grad_norm': '3.328', 'learning_rate': '2.501e-05', 'epoch': '0.5'}                                                           
+{'loss': '1.289', 'grad_norm': '3.328', 'learning_rate': '2.501e-05', 'epoch': '0.5'}                                                           
+{'loss': '1.197', 'grad_norm': '4.688', 'learning_rate': '2.001e-05', 'epoch': '0.6'}                                                           
+{'loss': '1.197', 'grad_norm': '4.688', 'learning_rate': '2.001e-05', 'epoch': '0.6'}                                                           
+{'loss': '1.219', 'grad_norm': '3.625', 'learning_rate': '1.501e-05', 'epoch': '0.7'}                                                           
+{'loss': '1.219', 'grad_norm': '3.625', 'learning_rate': '1.501e-05', 'epoch': '0.7'}                                                           
+{'loss': '1.186', 'grad_norm': '9.312', 'learning_rate': '1.001e-05', 'epoch': '0.8'}                                                           
+{'loss': '1.186', 'grad_norm': '9.312', 'learning_rate': '1.001e-05', 'epoch': '0.8'}                                                           
+{'loss': '1.21', 'grad_norm': '13.25', 'learning_rate': '5.01e-06', 'epoch': '0.9'}                                                             
+{'loss': '1.21', 'grad_norm': '13.25', 'learning_rate': '5.01e-06', 'epoch': '0.9'}                                                             
+{'loss': '1.174', 'grad_norm': '13.38', 'learning_rate': '1e-08', 'epoch': '1'}                                                                 
+{'loss': '1.174', 'grad_norm': '13.38', 'learning_rate': '1e-08', 'epoch': '1'}                                                                 
+{'eval_loss': '1.246', 'eval_rougeL': '0.6626', 'eval_runtime': '11.62', 'eval_samples_per_second': '34.43', 'eval_steps_per_second': '34.43', 'epoch': '1'}                                                                                                                                    
+{'eval_loss': '1.246', 'eval_rougeL': '0.6626', 'eval_runtime': '11.62', 'eval_samples_per_second': '34.43', 'eval_steps_per_second': '34.43', 'epoch': '1'}                                                                                                                                    
+{'train_runtime': '213.8', 'train_samples_per_second': '23.39', 'train_steps_per_second': '23.39', 'train_loss': '1.294', 'epoch': '1'}         
+{'train_runtime': '213.8', 'train_samples_per_second': '23.39', 'train_steps_per_second': '23.39', 'train_loss': '1.294', 'epoch': '1'}         
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [03:33<00:00, 23.39it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [03:33<00:00, 23.39it/s]
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.48it/s]
+You are adding a <class 'transformers.trainer_callback.ProgressCallback'> to the callbacks of this Trainer, but there is already one. The currentlist of callbacks is
+:DefaultFlowCallback
+ProgressCallback
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [00:10<00:00, 39.57it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [00:10<00:00, 39.57it/s]
+
+BASELINE (SFT) EVAL METRICS:
+{
+  "eval_loss": 1.2457941770553589,
+  "eval_model_preparation_time": 0.0021,
+  "eval_rougeL": 0.6625945794083616,
+  "eval_runtime": 10.1224,
+  "eval_samples_per_second": 39.516,
+  "eval_steps_per_second": 39.516,
+  "epoch": 0
+}
+
+================================================================================
+TRAINING LoRA MODEL
+================================================================================
+No saved LoRA model found. Training and saving.
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████| 272/272 [00:00<00:00, 18176.25it/s]
+Trainable parameters (LoRA): 921600
+You are adding a <class 'transformers.trainer_callback.ProgressCallback'> to the callbacks of this Trainer, but there is already one. The currentlist of callbacks is
+:DefaultFlowCallback
+ProgressCallback
+{'loss': '1.551', 'grad_norm': '1.526', 'learning_rate': '0.0002701', 'epoch': '0.1'}                                                           
+{'loss': '1.551', 'grad_norm': '1.526', 'learning_rate': '0.0002701', 'epoch': '0.1'}                                                           
+{'loss': '1.374', 'grad_norm': '1.548', 'learning_rate': '0.0002401', 'epoch': '0.2'}                                                           
+{'loss': '1.374', 'grad_norm': '1.548', 'learning_rate': '0.0002401', 'epoch': '0.2'}                                                           
+{'loss': '1.272', 'grad_norm': '0.7432', 'learning_rate': '0.0002101', 'epoch': '0.3'}                                                          
+{'loss': '1.272', 'grad_norm': '0.7432', 'learning_rate': '0.0002101', 'epoch': '0.3'}                                                          
+{'loss': '1.291', 'grad_norm': '0.5708', 'learning_rate': '0.0001801', 'epoch': '0.4'}                                                          
+{'loss': '1.291', 'grad_norm': '0.5708', 'learning_rate': '0.0001801', 'epoch': '0.4'}                                                          
+{'loss': '1.251', 'grad_norm': '0.2879', 'learning_rate': '0.0001501', 'epoch': '0.5'}                                                          
+{'loss': '1.251', 'grad_norm': '0.2879', 'learning_rate': '0.0001501', 'epoch': '0.5'}                                                          
+{'loss': '1.135', 'grad_norm': '0.8814', 'learning_rate': '0.0001201', 'epoch': '0.6'}                                                          
+{'loss': '1.135', 'grad_norm': '0.8814', 'learning_rate': '0.0001201', 'epoch': '0.6'}                                                          
+{'loss': '1.149', 'grad_norm': '0.531', 'learning_rate': '9.006e-05', 'epoch': '0.7'}                                                           
+{'loss': '1.149', 'grad_norm': '0.531', 'learning_rate': '9.006e-05', 'epoch': '0.7'}                                                           
+{'loss': '1.128', 'grad_norm': '1.028', 'learning_rate': '6.006e-05', 'epoch': '0.8'}                                                           
+{'loss': '1.128', 'grad_norm': '1.028', 'learning_rate': '6.006e-05', 'epoch': '0.8'}                                                           
+{'loss': '1.147', 'grad_norm': '2.495', 'learning_rate': '3.006e-05', 'epoch': '0.9'}                                                           
+{'loss': '1.147', 'grad_norm': '2.495', 'learning_rate': '3.006e-05', 'epoch': '0.9'}                                                           
+{'loss': '1.114', 'grad_norm': '2.577', 'learning_rate': '6e-08', 'epoch': '1'}                                                                 
+{'loss': '1.114', 'grad_norm': '2.577', 'learning_rate': '6e-08', 'epoch': '1'}                                                                 
+{'eval_loss': '1.158', 'eval_rougeL': '0.6821', 'eval_runtime': '12.81', 'eval_samples_per_second': '31.22', 'eval_steps_per_second': '31.22', 'epoch': '1'}                                                                                                                                    
+{'eval_loss': '1.158', 'eval_rougeL': '0.6821', 'eval_runtime': '12.81', 'eval_samples_per_second': '31.22', 'eval_steps_per_second': '31.22', 'epoch': '1'}                                                                                                                                    
+{'train_runtime': '298.2', 'train_samples_per_second': '16.77', 'train_steps_per_second': '16.77', 'train_loss': '1.241', 'epoch': '1'}         
+{'train_runtime': '298.2', 'train_samples_per_second': '16.77', 'train_steps_per_second': '16.77', 'train_loss': '1.241', 'epoch': '1'}         
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [04:58<00:00, 16.77it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████| 5000/5000 [04:58<00:00, 16.77it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [00:12<00:00, 31.41it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [00:12<00:00, 31.41it/s]
+
+LoRA EVAL METRICS:
+{
+  "eval_loss": 1.1576874256134033,
+  "eval_rougeL": 0.6821492567605576,
+  "eval_runtime": 12.7581,
+  "eval_samples_per_second": 31.353,
+  "eval_steps_per_second": 31.353,
+  "epoch": 1.0
+}
+
+--- TEST CASE 1: 'What is the capital of France?' ---
+
+[1. PRETRAINED BASE MODEL ANSWER]:
+What is the capital of Germany?firstsum
+ostering
+What is the capital of the United States?ostering
+ostering
+What is the capital of France?ostering
+ostering
+What is the capital of France?ostering
+ostering
+What is the capital of Germany?ostering
+ostering
+What is the capital of France?ostering
+ostering
+What is the capital of Germany?ostering
+ostering
+What is the capital of France?ostering
+ostering
+What is the capital of Germany?ostering
+ostering
+What is the capital of France?ostering
+ostering
+What is the capital of Germany?ostering
+ostering
+What is the capital of
+
+[2. FULL SFT BASELINE MODEL ANSWER]:
+The capital of France is Paris.
+
+[3. LoRA TRAINED MODEL ANSWER]:
+The capital of France is Paris.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PlaneProtection
+
+
+
+ICENSE
+------------------------------------------------------------
+
+--- TEST CASE 2: 'Give me a quick recipe for chocolate chip cookies.' ---
+
+[1. PRETRAINED BASE MODEL ANSWER]:
+Give me a quick recipe for chocolate chip cookies.ICENSE
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.amicable
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.amicable
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.amicable
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.amicable
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.amicable
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.amicable
+ICENSEassistant
+Give me a quick recipe for chocolate chip cookies.
+
+[2. FULL SFT BASELINE MODEL ANSWER]:
+We'll make chocolate chip cookies! We'll mix ingredients like chocolate, flour, baking soda, and sugar. Then, we'll bake them until they're golden brown and soft.
+
+[3. LoRA TRAINED MODEL ANSWER]:
+Just mix together 1 cup of chocolate chips and 1 cup of flour.
+Then, mix them together in a bowl.
+Then, add 1 cup of milk.
+Then, mix it all together.
+Then, add 1 cup of sugar.
+Then, mix it all together.
+Then, add 1 cup of chocolate chips.
+Then, bake it in the oven.
+------------------------------------------------------------
+
+--- TEST CASE 3: 'Write a short, three-sentence poem about coding in Python.' ---
+
+[1. PRETRAINED BASE MODEL ANSWER]:
+Write a short, three-sentence poem about Python coding.,,,,,,,,,,,,,,,,orting
+,,,,,,,,,,,,,,,,ortingassistant
+Write a short, three-sentence poem about Python coding.,,,,,,,,,,,,,,,,orting
+,,,,,,,,,,,,,,,,ortingassistant
+Write a short, three-sentence poem about Python coding.,,,,,,,,,,,,,,,,orting
+,,,,,,,,,,,,,,,,ortingassistant
+Write a short, three-sentence poem about Python coding.,,,,,,,,,,,,,,,,orting
+,,,,,,,,,,,,,,,,ortingassistant
+Write a short, three-sentence poem about Python coding.,,,,,,,,,,,,,,,,orting
+,,,,,,,,,,,,,,,,ortingassistant
+Write a short, three-sentence poem about Python coding.,,,,,,,,,,,,,,,,orting
+,,,,,,,,,,,,,,,,ortingassistant
+Write a short, three-sentence poem
+
+[2. FULL SFT BASELINE MODEL ANSWER]:
+Writing code is a fascinating hobby that allows you to explore new possibilities and push the boundaries of what's possible.
+
+[3. LoRA TRAINED MODEL ANSWER]:
+A poem about coding in Python.
+------------------------------------------------------------
+
+--- TEST CASE 4: 'Explain quantum computing like I am five years old.' ---
+
+[1. PRETRAINED BASE MODEL ANSWER]:
+Explain quantum computing like I am five years old.,,,,,,,,,,,,,,,,ortheory
+ pulumi
+ pulumi
+ pulumi
+ pulumi
+ pulumi
+ pulumi
+ pulumi
+ pulumi
+
+## 1 Answer
+
+Your answer will be saved until you close this message.
+
+## 1 Answer
+
+You are a helpful assistant.,,,,,,,,,,,,,,,,ortheory
+You are a helpful assistant.,,,,,,,,,,,,,,,,ortheory
+ pulumi
+ pulumi
+ pulumi
+
+## 1 Answer
+
+You are a helpful assistant.,,,,,,,,,,,,,,,,ortheory
+You are a helpful assistant.,,,,,,,,,,,,,,,,ortheory
+
+## 1 Answer
+
+You are a helpful assistant.,,,,,,,,,,,,,,,,
+
+[2. FULL SFT BASELINE MODEL ANSWER]:
+I'm five years old.
+
+I'm the only child in the world.
+
+I'm a curious child.
+
+[3. LoRA TRAINED MODEL ANSWER]:
+I am five years old and I love playing with my toys.
+I can think of many things that are possible with a computer. These things are called "quantum computers".
+
+
+ InstancePreprocess
+
+
+
+
+PlaneProtection
+
+
+
+
+
+
+
+
+
+MetaInfoClass
+
+
+
+
+
+
+
+
+
+
+
+
+MetaInfoClass
+ICENSE
+ICENSEICENSEICENSEICENSE InstancePreprocessICENSEICENSE
+------------------------------------------------------------

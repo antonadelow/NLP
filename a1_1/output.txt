@@ -1,0 +1,20 @@
+========================================
+--- Running Evaluation and Analysis ---
+========================================
+
+[Task 5.1] Predicting next words for: 'she lives in san'
+  - francisco: 11.1116
+  - <UNK>: 9.8675
+  - diego: 8.1883
+  - juan: 7.7061
+  - antonio: 5.9523
+
+[Task 5.2] Computing Validation Perplexity (this may take a minute)...
+  -> Validation Perplexity: 77.40
+
+[Task 5.3] Finding Nearest Neighbors for 'sweden'...
+  - 1905: 0.2763
+  - streets: 0.2663
+  - germany: 0.2660
+  - angola: 0.2617
+  - shortly: 0.2558
